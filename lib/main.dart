@@ -1,3 +1,4 @@
+import 'package:e_commerce_app_riverpod/screens/details_page.dart';
 import 'package:e_commerce_app_riverpod/screens/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         textTheme: GoogleFonts.sourceSansProTextTheme(),
       ),
-      home: const HomePage(),
+      home: const DetailsScreen(),
     );
   }
 }
