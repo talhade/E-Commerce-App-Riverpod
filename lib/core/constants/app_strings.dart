@@ -9,6 +9,8 @@ class Strings {
   static String total = 'Total';
   static String buyNow = 'Buy Now';
   static String lorem = 'Lorem Ipsum';
+  static String loremLong =
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud';
   static String getNow = 'Get Now';
   static String discount = '30% OFF';
 }
