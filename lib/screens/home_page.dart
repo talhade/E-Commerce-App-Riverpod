@@ -1,6 +1,8 @@
 import 'package:e_commerce_app_riverpod/core/constants/app_strings.dart';
 import 'package:e_commerce_app_riverpod/core/constants/colors.dart';
 import 'package:e_commerce_app_riverpod/core/constants/icons.dart';
+import 'package:e_commerce_app_riverpod/models/product_model.dart';
+import 'package:e_commerce_app_riverpod/providers/product.dart';
 import 'package:e_commerce_app_riverpod/widgets/category_view.dart';
 import 'package:e_commerce_app_riverpod/widgets/icon_button.dart';
 import 'package:e_commerce_app_riverpod/widgets/product_card.dart';
@@ -46,7 +48,24 @@ class HomePage extends ConsumerWidget {
                 height: 10.0.hp,
                 child: const CategoryView(),
               ),
-              ProductCard(),
+              GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2),
+                shrinkWrap: true,
+                physics: const ClampingScrollPhysics(),
+                itemCount: allProducts.length,
+                itemBuilder: (context, index) {
+                  Product product = allProducts[index];
+
+                  return Consumer(
+                    builder: (context, ref, child) {
+                      return ProductCard(
+                        product: product,
+                      );
+                    },
+                  );
+                },
+              ),
             ],
           ),
         ),
