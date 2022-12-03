@@ -13,4 +13,5 @@ class Strings {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud';
   static String getNow = 'Get Now';
   static String discount = '30% OFF';
+  static String myCart = 'My Cart';
 }
