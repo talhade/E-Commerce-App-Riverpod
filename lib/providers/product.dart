@@ -1,4 +1,3 @@
-import 'package:e_commerce_app_riverpod/models/cart_product.dart';
 import 'package:e_commerce_app_riverpod/models/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
