@@ -1,15 +1,21 @@
 import 'package:e_commerce_app_riverpod/core/constants/colors.dart';
 import 'package:e_commerce_app_riverpod/core/utils/extensions.dart';
+import 'package:e_commerce_app_riverpod/models/cart_product_model.dart';
+import 'package:e_commerce_app_riverpod/models/product_model.dart';
+import 'package:e_commerce_app_riverpod/providers/cart.dart';
 import 'package:e_commerce_app_riverpod/widgets/qty_chip.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class CartTile extends StatelessWidget {
+class CartTile extends ConsumerWidget {
+  final CartProduct product;
   const CartTile({
-    Key? key,
-  }) : super(key: key);
+    required this.product,
+    super.key,
+  });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Container(
       width: 100.0.wp,
       height: 20.0.hp,
@@ -29,7 +35,7 @@ class CartTile extends StatelessWidget {
                 color: AppColors.linen,
                 borderRadius: BorderRadius.circular(16),
               ),
-              child: Image.asset('assets/apple_watch.png'),
+              child: Image.asset(product.product.imagePath),
             ),
           ),
           Padding(
@@ -38,7 +44,7 @@ class CartTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Apple Watch',
+                  product.product.name,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
@@ -48,7 +54,7 @@ class CartTile extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Size: 12',
+                  'Quantity: ${ref.watch(cartProvider).getQty(product)}',
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: 11.0.sp,
@@ -61,18 +67,23 @@ class CartTile extends StatelessWidget {
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        '\$ 30',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 19.0.sp,
-                          color: AppColors.black,
+                      SizedBox(
+                        width: 14.0.wp,
+                        child: Text(
+                          maxLines: 1,
+                          overflow: TextOverflow.clip,
+                          '\$${ref.read(cartProvider).getProductsPrice(product).toString()}',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 19.0.sp,
+                            color: AppColors.black,
+                          ),
                         ),
                       ),
                       SizedBox(
                         width: 10.0.wp,
                       ),
-                      QtyChip(),
+                      QtyChip(cProduct: product),
                     ],
                   ),
                 ),
