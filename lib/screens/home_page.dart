@@ -3,6 +3,7 @@ import 'package:e_commerce_app_riverpod/core/constants/colors.dart';
 import 'package:e_commerce_app_riverpod/core/constants/icons.dart';
 import 'package:e_commerce_app_riverpod/models/product_model.dart';
 import 'package:e_commerce_app_riverpod/providers/product.dart';
+import 'package:e_commerce_app_riverpod/screens/details_page.dart';
 import 'package:e_commerce_app_riverpod/widgets/category_view.dart';
 import 'package:e_commerce_app_riverpod/widgets/icon_button.dart';
 import 'package:e_commerce_app_riverpod/widgets/product_card.dart';
@@ -53,14 +54,21 @@ class HomePage extends ConsumerWidget {
                     crossAxisCount: 2),
                 shrinkWrap: true,
                 physics: const ClampingScrollPhysics(),
-                itemCount: allProducts.length,
+                itemCount: ref.watch(productProvider).length,
                 itemBuilder: (context, index) {
-                  Product product = allProducts[index];
+                  Product product =
+                      ref.watch(productProvider).getProduct(index);
 
                   return Consumer(
                     builder: (context, ref, child) {
-                      return ProductCard(
-                        product: product,
+                      return GestureDetector(
+                        onTap: () =>
+                            Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => DetailsScreen(product: product),
+                        )),
+                        child: ProductCard(
+                          product: product,
+                        ),
                       );
                     },
                   );

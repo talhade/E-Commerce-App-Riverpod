@@ -46,11 +46,11 @@ class ProductCard extends ConsumerWidget {
                     builder: (context, ref, child) {
                       return IconButton(
                         onPressed: () {
-                          print(product.isFavorite);
+                          ref.read(productProvider).updateFav(product);
                         },
                         icon: Icon(
                           Icons.favorite,
-                          color: product.isFavorite
+                          color: ref.watch(productProvider).getIsFav(product)
                               ? AppColors.flamingo
                               : AppColors.schooner,
                         ),
