@@ -2,6 +2,8 @@ import 'package:e_commerce_app_riverpod/core/constants/app_strings.dart';
 import 'package:e_commerce_app_riverpod/core/constants/colors.dart';
 import 'package:e_commerce_app_riverpod/core/utils/extensions.dart';
 import 'package:e_commerce_app_riverpod/models/product_model.dart';
+import 'package:e_commerce_app_riverpod/providers/cart.dart';
+import 'package:e_commerce_app_riverpod/screens/cart_page.dart';
 import 'package:e_commerce_app_riverpod/widgets/wide_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -97,7 +99,12 @@ class DetailsScreen extends ConsumerWidget {
                       ),
                       WideButton(
                         text: Strings.addToCart,
-                        onTap: () {},
+                        onTap: () {
+                          ref.read(cartProvider).addToCart(product);
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => CartScreen(),
+                          ));
+                        },
                       ),
                     ],
                   ),
