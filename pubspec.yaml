@@ -40,6 +40,7 @@ dependencies:
   get: ^4.6.5
   google_fonts: ^3.0.1
   uuid: ^3.0.7
+  flutter_slidable: ^2.0.0
 
 dev_dependencies:
   flutter_test:

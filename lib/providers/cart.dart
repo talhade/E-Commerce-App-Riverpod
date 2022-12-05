@@ -18,10 +18,17 @@ class CartNotifier extends ChangeNotifier {
     }
   }
 
+  void removeFromCart(CartProduct cProduct) {
+    cartProducts.remove(cProduct);
+    addedProducts.remove(cProduct.product);
+    notifyListeners();
+  }
+
   void incrementQty(CartProduct cProduct) {
     for (final i in cartProducts) {
-      if (i.uid == cProduct.uid && i.qty < 5) {
+      if (i.uid == cProduct.uid && i.qty <= 5) {
         cProduct.qty++;
+
         // print(cProduct.qty);
         notifyListeners();
       }
@@ -30,9 +37,10 @@ class CartNotifier extends ChangeNotifier {
 
   void decrementQty(CartProduct cProduct) {
     for (final i in cartProducts) {
-      if (i.uid == cProduct.uid && i.qty > 1) {
+      if (i.uid == cProduct.uid && i.qty >= 1) {
         cProduct.qty--;
         // print(cProduct.qty);
+
         notifyListeners();
       }
     }
@@ -61,9 +69,8 @@ class CartNotifier extends ChangeNotifier {
     return total;
   }
 
-  //todo ADD DELETE,
-  //todo IF TRYING TO DECREMENT WHEN LESS THAN 1 ADD REMOVE,
   //todo IF MORE THAN 5 SHOW DIALOGBOX
+  //todo add navbar
 }
 
 final cartProvider = ChangeNotifierProvider<CartNotifier>((ref) {
