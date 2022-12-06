@@ -7,13 +7,14 @@ class CartNotifier extends ChangeNotifier {
   final List<CartProduct> cartProducts = [];
   final List<Product> addedProducts = [];
 
+  int get length => cartProducts.length;
+
   void addToCart(Product product) {
     if (!addedProducts.contains(product)) {
       //!  we are adding the product for the first time:
       final CartProduct prdct = CartProduct(product: product);
       cartProducts.add(prdct);
       addedProducts.add(product);
-      print('${product.toString()} added to cart');
       notifyListeners();
     }
   }
@@ -28,8 +29,6 @@ class CartNotifier extends ChangeNotifier {
     for (final i in cartProducts) {
       if (i.uid == cProduct.uid && i.qty <= 5) {
         cProduct.qty++;
-
-        // print(cProduct.qty);
         notifyListeners();
       }
     }
@@ -39,7 +38,6 @@ class CartNotifier extends ChangeNotifier {
     for (final i in cartProducts) {
       if (i.uid == cProduct.uid && i.qty >= 1) {
         cProduct.qty--;
-        // print(cProduct.qty);
 
         notifyListeners();
       }
@@ -64,12 +62,10 @@ class CartNotifier extends ChangeNotifier {
     int total = 0;
     for (final i in cartProducts) {
       total += i.qty * i.product.price;
-      print(total);
     }
     return total;
   }
 
-  //todo IF MORE THAN 5 SHOW DIALOGBOX
   //todo add navbar
 }
 
