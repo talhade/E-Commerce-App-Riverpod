@@ -3,10 +3,10 @@ import 'package:e_commerce_app_riverpod/core/constants/colors.dart';
 import 'package:e_commerce_app_riverpod/core/utils/extensions.dart';
 import 'package:e_commerce_app_riverpod/models/product_model.dart';
 import 'package:e_commerce_app_riverpod/providers/cart.dart';
-import 'package:e_commerce_app_riverpod/screens/cart_page.dart';
 import 'package:e_commerce_app_riverpod/widgets/wide_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:ftoast/ftoast.dart';
 
 class DetailsScreen extends ConsumerWidget {
   final Product product;
@@ -18,7 +18,6 @@ class DetailsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      // appBar: AppBar(),
       body: SingleChildScrollView(
         child: Stack(
           children: [
@@ -101,9 +100,7 @@ class DetailsScreen extends ConsumerWidget {
                         text: Strings.addToCart,
                         onTap: () {
                           ref.read(cartProvider).addToCart(product);
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => CartScreen(),
-                          ));
+                          FToast.toast(context, msg: 'Added To Cart');
                         },
                       ),
                     ],
