@@ -3,7 +3,8 @@
 An e-Commerce app prototype built with Flutter.
 
 
-![gif-e-commerce](https://user-images.githubusercontent.com/114522498/205890375-833f0a5f-54bc-4858-b899-aad81b77968b.gif)
+![e-commerce-gif](https://user-images.githubusercontent.com/114522498/205896173-c9487c19-1d50-4616-95d7-06c4c479ea96.gif)
+
 
 
 In this project I cloned [Masum Billah](https://dribbble.com/designermasum)'s awesome  [E-commerce Mobile App](https://dribbble.com/shots/15550702-E-commerce-Mobile-App) design.
