@@ -1,6 +1,34 @@
-# e_commerce_app_riverpod
+# 📱E-Commerce App
 
-A new Flutter project.
+An e-Commerce app prototype built with Flutter.
+
+
+![gif-e-commerce](https://user-images.githubusercontent.com/114522498/205890375-833f0a5f-54bc-4858-b899-aad81b77968b.gif)
+
+
+In this project I cloned [Masum Billah](https://dribbble.com/designermasum)'s awesome  [E-commerce Mobile App](https://dribbble.com/shots/15550702-E-commerce-Mobile-App) design.
+
+This project developed by using **Flutter**. 
+As state management solution **Riverpod** is used
+
+
+## Run This App In Your Computer
+
+First make sure you have Flutter in your device.
+In your terminal write this code:
+
+```
+https://github.com/talhade/e-commerce-app-riverpod.git
+```
+And while in your project in  terminal write this code to get all dependencies: 
+```
+flutter pub get
+```
+And you can run this project with:
+```
+flutter run
+```
+
 
 ## Getting Started
 
