@@ -1,6 +1,6 @@
 # 📱E-Commerce App
 
-**e-commerce-app-riverpod** is a mobile application built using Flutter and Riverpod state management. This app allows users to favorite products, calculate prices, and adjust product quantities. It also displays an alert dialog when the selected quantity exceeds a specified limit.
+**E-Commerce App** is a mobile application built using Flutter and Riverpod state management. This app allows users to favorite products, calculate prices, and adjust product quantities. It also displays an alert dialog when the selected quantity exceeds a specified limit.
 
 ## Features
 
@@ -31,7 +31,7 @@ To run this project locally, follow these steps:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-username/e-commerce-app-riverpod.git
+   git clone https://github.com/talhade/E-Commerce-App-Riverpod.git
 2. **Open in Your IDE**:  
    Open the project in your preferred IDE (such as Android Studio or VS Code).
 
